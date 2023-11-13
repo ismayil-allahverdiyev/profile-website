@@ -1,19 +1,28 @@
 import './App.css'
 import './index.css'
-import NavBar from './components/navbar'
-import HomeDisplay from './components/homedisplay'
-import ProjectDisplay from './components/projects/project_display'
-import BottomBarView from './components/bottombar/view/bottom_bar_view'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import HomePageView from './components/home_page/view/home_page_view'
+import { ProjectsPageView } from './components/projects/view/projects_page_view';
+import { RootLayout } from './components/root/root_layout';
+import ErrorView from './components/root/error_view';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <ErrorView />,
+    children: [
+      { path: '/', element: <HomePageView /> },
+      { path: '/projects', element: <ProjectsPageView /> },
+    ],
+  },
+]);
 
 function App() {
   return (
     <>
-      <div className='flex flex-col'>
-        <NavBar />
-        <HomeDisplay />
-        <ProjectDisplay />
-        <BottomBarView />
-      </div >
+      <RouterProvider router={router} />
     </>
   )
 }

@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 body {}
+
+.list a:hover,
+.list a.active {
+    color: var(--color-gray-900);
+}

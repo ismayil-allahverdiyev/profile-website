@@ -1,7 +1,7 @@
 import "../App.css"
 import { HiMenu, HiMenuAlt3 } from "react-icons/hi"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export default function NavBar() {
     const [nav, setNav] = useState(false)
@@ -15,7 +15,7 @@ export default function NavBar() {
             <div className="flex flex-row justify-between p-4 max-w-[1240px] mx-auto w-[100%] text-[#7400b8]">
                 <h1 className="text-3xl font-bold ">Software Developer.</h1>
                 <ul className={"lg:flex md:flex hidden font-bold "}>
-                    <li className="px-4"><Link to={"/projects"}>Projects</Link></li>
+                    <li className="px-4"><NavLink to={"/projects"} className={({ isActive }) => (isActive ? "a" : "b")}>Projects</NavLink></li>
                     <li className="px-4">Skills</li>
                     <li className="px-4">Order</li>
                     <li className="px-4"><Link to={"/"}>Home</Link></li>

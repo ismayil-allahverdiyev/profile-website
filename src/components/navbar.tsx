@@ -7,7 +7,7 @@ export default function NavBar() {
     const [nav, setNav] = useState(false)
 
     const handleNav = () => {
-        setNav(!nav)
+        setNav(prev => !prev);
     }
 
     return <>
